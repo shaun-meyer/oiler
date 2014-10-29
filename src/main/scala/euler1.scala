@@ -11,12 +11,13 @@ object euler1 extends App {
 	val below = 1000
 	
 	@tailrec def multiples(multipleOf: Int, currentNum: Int, multList: List[Int]): List[Int] = currentNum match {
-	  case x: Int if currentNum >= 1000 => multList
+	  case x: Int if currentNum >= below => multList
 	  case _ => multiples(multipleOf, currentNum + multipleOf, currentNum :: multList)  
 	}
 	
 	val lowList = multiples(lowMult, lowMult, List())
 	val highList = multiples(highMult, highMult, List())
 
-	println((List(lowList, highList).flatten).distinct.foldLeft(0)((a,b) => a + b)
+	println((List(lowList, highList).flatten).distinct.foldLeft(0)((a,b) => a + b))
+
 }
